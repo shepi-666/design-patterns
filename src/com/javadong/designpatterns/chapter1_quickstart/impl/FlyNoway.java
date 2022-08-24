@@ -1,0 +1,15 @@
+package com.javadong.designpatterns.chapter1_quickstart.impl;
+
+import com.javadong.designpatterns.chapter1_quickstart.FlyBehavior;
+
+/**
+ * @author DongShaowei
+ * @description
+ * @date 2022/8/24 19:29
+ */
+public class FlyNoway implements FlyBehavior {
+    @Override
+    public void fly() {
+        System.out.println("I can not flying!!");
+    }
+}
