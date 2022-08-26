@@ -1,6 +1,7 @@
 package com.javadong.designpatterns.chapter3_decorator.test;
 
 import com.javadong.designpatterns.chapter3_decorator.starbuck.Beverage;
+import com.javadong.designpatterns.chapter3_decorator.starbuck.Enums.Size;
 import com.javadong.designpatterns.chapter3_decorator.starbuck.impl.Espresso;
 import com.javadong.designpatterns.chapter3_decorator.starbuck.impl.Mocha;
 import com.javadong.designpatterns.chapter3_decorator.starbuck.impl.Soy;
@@ -16,7 +17,7 @@ public class StarBuckTest {
 
     @Test
     public void testStarBuck() {
-        Beverage beverage = new Espresso();
+        Beverage beverage = new Espresso(Size.TOLL);
         System.out.println(beverage);
 
         beverage = new Mocha(beverage);

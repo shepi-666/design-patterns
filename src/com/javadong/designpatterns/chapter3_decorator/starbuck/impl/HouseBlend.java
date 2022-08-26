@@ -1,6 +1,7 @@
 package com.javadong.designpatterns.chapter3_decorator.starbuck.impl;
 
 import com.javadong.designpatterns.chapter3_decorator.starbuck.Beverage;
+import com.javadong.designpatterns.chapter3_decorator.starbuck.Enums.Size;
 
 /**
  * @author DongShaowei
@@ -9,13 +10,14 @@ import com.javadong.designpatterns.chapter3_decorator.starbuck.Beverage;
  */
 public class HouseBlend extends Beverage {
 
-    public HouseBlend() {
-        this.description = "HouseBlend";
+    public HouseBlend(Size size) {
+        this.description = size.getDesc() + ": HouseBlend";
         this.price = 0.89;
+        this.setSize(size);
     }
 
     @Override
     public double cost() {
-        return this.price;
+        return this.price + getSize().getPrice();
     }
 }
