@@ -1,4 +1,4 @@
-package com.javadong.designpatterns.chapter4_factory.pizzafactory;
+package com.javadong.designpatterns.chapter4_factory.pizzafactory.enums;
 
 /**
  * @author DongShaowei

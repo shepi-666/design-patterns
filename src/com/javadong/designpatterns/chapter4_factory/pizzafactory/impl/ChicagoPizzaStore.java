@@ -2,7 +2,7 @@ package com.javadong.designpatterns.chapter4_factory.pizzafactory.impl;
 
 import com.javadong.designpatterns.chapter4_factory.pizzafactory.Pizza;
 import com.javadong.designpatterns.chapter4_factory.pizzafactory.PizzaStore;
-import com.javadong.designpatterns.chapter4_factory.pizzafactory.PizzaType;
+import com.javadong.designpatterns.chapter4_factory.pizzafactory.enums.PizzaType;
 
 /**
  * @author DongShaowei

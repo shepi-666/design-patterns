@@ -1,7 +1,7 @@
 package com.javadong.designpatterns.chapter4_factory.test;
 
 import com.javadong.designpatterns.chapter4_factory.pizzafactory.PizzaStore;
-import com.javadong.designpatterns.chapter4_factory.pizzafactory.PizzaType;
+import com.javadong.designpatterns.chapter4_factory.pizzafactory.enums.PizzaType;
 import com.javadong.designpatterns.chapter4_factory.pizzafactory.impl.ChicagoPizzaStore;
 import org.junit.Test;
 
