@@ -47,7 +47,7 @@ public abstract class Pizza {
     public String toString() {
         StringBuilder  builder = new StringBuilder("This is a ");
         if (name != null) { builder.append(name); }
-        builder.append("which is made of ");
+        builder.append(" which is made of ");
         if (dough != null) { builder.append(dough.toString() + ", "); }
         if (sauce != null) { builder.append(sauce.toString() + ", "); }
         if (cheese != null) { builder.append(cheese.toString() + ", "); }

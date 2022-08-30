@@ -11,12 +11,11 @@ public abstract class PizzaStore {
         Pizza pizza = null;
 
         pizza = createPizza(type);
-
         pizza.prepare();
         pizza.bake();
         pizza.cut();
         pizza.box();
-
+        System.out.println(pizza);
         return pizza;
     }
 
