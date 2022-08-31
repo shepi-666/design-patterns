@@ -12,5 +12,5 @@ public class Light {
         System.out.println("light is on !");
     }
 
-    public void off() {}
+    public void off() { System.out.println("light is off !");}
 }
