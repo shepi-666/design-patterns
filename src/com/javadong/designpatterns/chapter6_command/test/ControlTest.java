@@ -88,4 +88,35 @@ public class ControlTest {
         remoteControl.undoButtonPushed();
 
     }
+
+    /**
+     * 测试宏命令
+     */
+    @Test
+    public void testMacroCommand() {
+        Light light = new Light();
+        Stereo stereo = new Stereo();
+        GarageDoor door = new GarageDoor();
+
+        Command doorUp = new GarageDoorOpenCommand(door);
+        Command stereoOn = new StereoOnWithCdCommand(stereo);
+        Command lightOn = new LightOnCommand(light);
+
+        List<Command> commandList = new ArrayList<>();
+        commandList.add(doorUp);
+        commandList.add(stereoOn);
+        commandList.add(lightOn);
+
+        Command partyOnMacro = new MacroCommand(commandList);
+
+        RemoteControl control = new RemoteControl();
+        control.setCommand(0, partyOnMacro, null);
+
+        System.out.println(control);
+        System.out.println("----- Pushing Macro on -----");
+        control.onButtonPushed(0);
+        System.out.println("----- Undo Macro -----");
+        control.undoButtonPushed();
+
+    }
 }
