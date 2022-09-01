@@ -1,8 +1,9 @@
 package com.javadong.designpatterns.chapter4_factory.pizzafactory.impl;
 
 import com.javadong.designpatterns.chapter4_factory.pizzafactory.Pizza;
+import com.javadong.designpatterns.chapter4_factory.pizzafactory.PizzaIngredientFactory;
 import com.javadong.designpatterns.chapter4_factory.pizzafactory.PizzaStore;
-import com.javadong.designpatterns.chapter4_factory.pizzafactory.PizzaType;
+import com.javadong.designpatterns.chapter4_factory.pizzafactory.enums.PizzaType;
 
 /**
  * @author DongShaowei
@@ -10,16 +11,22 @@ import com.javadong.designpatterns.chapter4_factory.pizzafactory.PizzaType;
  * @date 2022/8/29 9:10
  */
 public class NyPizzaStore extends PizzaStore {
+
     @Override
     public Pizza createPizza(String type) {
+        Pizza pizza = null;
+        PizzaIngredientFactory pif = new NyPizzaIngredientFactory();
+
         if (PizzaType.CHEESE.getType().equals(type)) {
-            return new NyStyleCheesePizza();
-        } else if (PizzaType.CLAM.getType().equals(type)) {
-            return new NyStyleClamPizza();
-        } else if (PizzaType.VEGGIE.getType().equals(type)) {
-            return new NyStyleVeggiePizza();
-        } else {
-            return null;
+            pizza = new CheesePizza(pif);
+            pizza.setName("New York style cheese pizza");
         }
+
+        if (PizzaType.CLAM.getType().equals(type)) {
+            pizza = new ClamPizza(pif);
+            pizza.setName("New York style clam pizza");
+        }
+
+        return pizza;
     }
 }

@@ -1,8 +1,9 @@
 package com.javadong.designpatterns.chapter4_factory.test;
 
 import com.javadong.designpatterns.chapter4_factory.pizzafactory.PizzaStore;
-import com.javadong.designpatterns.chapter4_factory.pizzafactory.PizzaType;
+import com.javadong.designpatterns.chapter4_factory.pizzafactory.enums.PizzaType;
 import com.javadong.designpatterns.chapter4_factory.pizzafactory.impl.ChicagoPizzaStore;
+import com.javadong.designpatterns.chapter4_factory.pizzafactory.impl.NyPizzaStore;
 import org.junit.Test;
 
 /**
@@ -11,10 +12,9 @@ import org.junit.Test;
  * @date 2022/8/29 9:30
  */
 public class PizzaTest {
-
     @Test
-    public void testPizzaFactory() {
-        PizzaStore store = new ChicagoPizzaStore();
-        store.orderPizza(PizzaType.CLAM.getType());
+    public void testAbstractFactory() {
+        PizzaStore store = new NyPizzaStore();
+        store.orderPizza(PizzaType.CHEESE.getType());
     }
 }
