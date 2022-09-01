@@ -12,4 +12,9 @@ public interface Command {
      */
     public void execute();
 
+    /**
+     * 执行撤销的动作
+     */
+    public void undo();
+
 }

@@ -8,10 +8,15 @@ import java.util.List;
 
 /**
  * @author DongShaowei
- * @description 遥控器
+ * @description 具有撤销功能的遥控器
  * @date 2022/8/31 22:20
  */
 public class RemoteControl {
+
+    /**
+     * 用来记录前一个命令
+     */
+    private Command undoCommand;
 
     private static final int SLOT_NUM = 7;
 
@@ -29,10 +34,12 @@ public class RemoteControl {
         onCommand = new ArrayList<>(SLOT_NUM);
         offCommand = new ArrayList<>(SLOT_NUM);
 
+        Command noCommand = new NoCommand();
         for (int i = 0; i < SLOT_NUM; i++) {
-            onCommand.add(new NoCommand());
-            offCommand.add(new NoCommand());
+            onCommand.add(noCommand);
+            offCommand.add(noCommand);
         }
+        undoCommand = noCommand;
     }
 
     /**
@@ -49,6 +56,7 @@ public class RemoteControl {
      */
     public void onButtonPushed(int slot) {
         onCommand.get(slot).execute();
+        undoCommand = onCommand.get(slot);
     }
 
     /**
@@ -57,6 +65,15 @@ public class RemoteControl {
      */
     public void offButtonPushed(int slot) {
         offCommand.get(slot).execute();
+        undoCommand = offCommand.get(slot);
+    }
+
+
+    /**
+     * 撤销按钮按下
+     */
+    public void undoButtonPushed() {
+        undoCommand.undo();
     }
 
     @Override

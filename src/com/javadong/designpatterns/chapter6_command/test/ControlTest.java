@@ -1,14 +1,10 @@
 package com.javadong.designpatterns.chapter6_command.test;
 
 import com.javadong.designpatterns.chapter6_command.Command;
-import com.javadong.designpatterns.chapter6_command.impl.GarageDoorOpenCommand;
-import com.javadong.designpatterns.chapter6_command.impl.LightOffCommand;
-import com.javadong.designpatterns.chapter6_command.impl.LightOnCommand;
-import com.javadong.designpatterns.chapter6_command.impl.StereoOnWithCdCommand;
+import com.javadong.designpatterns.chapter6_command.impl.*;
 import com.javadong.designpatterns.chapter6_command.model.*;
 import org.junit.Test;
 
-import java.rmi.Remote;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,6 +60,32 @@ public class ControlTest {
         System.out.println(control);
 
         control.onButtonPushed(2);
+        control.undoButtonPushed();
+    }
+
+
+    /**
+     * 测试风扇遥控器
+     */
+    @Test
+    public void testFanControl() {
+        RemoteControl remoteControl = new RemoteControl();
+
+        CeilingFan fan = new CeilingFan("Living Room");
+
+        Command mc = new CeilingFanMediumCommand(fan);
+        Command lc = new CeilingFanLowCommand(fan);
+        Command hc = new CeilingFanHighCommand(fan);
+        Command off = new CeilingFanOffCommand(fan);
+
+
+        remoteControl.setCommand(0, hc, off);
+        remoteControl.setCommand(0, mc, off);
+        remoteControl.setCommand(0, lc, off);
+
+        remoteControl.onButtonPushed(0);
+        remoteControl.offButtonPushed(0);
+        remoteControl.undoButtonPushed();
 
     }
 }
