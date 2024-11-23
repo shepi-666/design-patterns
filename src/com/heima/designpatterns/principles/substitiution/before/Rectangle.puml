@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/class-diagram
+class Rectangle {
+    - length: double
+    - width: double
+    + setLength(double length): void
+    + getLength(): double
+    + setWidth(double width): void
+    + getWidth(): double
+}
+class Square {
+    + setLength(double length): void
+    + setWidth(double width): void
+}
+
+class RectangleDemo {
+    + resize(Rectangle rect): void
+    + printLengthAndWidth(Rectangle rect): void
+}
+Rectangle <|-- Square: inheritance
+Rectangle <.right. RectangleDemo: dependency
+
+@enduml
