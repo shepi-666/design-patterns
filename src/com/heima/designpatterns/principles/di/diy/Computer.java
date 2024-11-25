@@ -1,5 +1,8 @@
-package com.heima.designpatterns.principles.di.old;
+package com.heima.designpatterns.principles.di.diy;
 
+import com.heima.designpatterns.principles.di.old.IntelCpu;
+import com.heima.designpatterns.principles.di.old.KingstonMemory;
+import com.heima.designpatterns.principles.di.old.XiJieHardDisk;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,11 +17,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Computer {
 
-    private IntelCpu cpu;
+    private CPU cpu;
 
-    private XiJieHardDisk hardDisk;
+    private HardDisk hardDisk;
 
-    private KingstonMemory memory;
+    private Memory memory;
 
     /**
      * method to run computer

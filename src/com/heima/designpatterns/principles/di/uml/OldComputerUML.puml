@@ -1,27 +1,32 @@
 @startuml
 'https://plantuml.com/class-diagram
+Computer *-- XiJieHardDisk
+Computer *-- IntelCPU
+Computer *-- KingstonMemory
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+class Computer {
+    - hardDisk: XiJieHardDisk
+    - cpu: IntelCPU
+    - memory: KingstonMemory
+    + setHardDisk(XiJieHardDisk disk): void
+    + getHardDisk(): XiJieHardDisk
+    + setCpu(IntelCPU cpu): void
+    + getCpu(): IntelCPU
+    + setMemory(KingstonMemory memory): void
+    + getMemory(): KingstonMemory
+    + run(): void
+}
+class XiJieHardDisk {
+    + save(String data): void
+    + get(): String
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+class IntelCPU {
+    + run(): void
+}
+
+class KingstonMemory {
+    + save(): void
 }
 
 @enduml
