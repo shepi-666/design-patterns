@@ -1,10 +1,10 @@
-package com.heima.designpatterns.pattern.singleton.lazyunsafety;
+package com.heima.designpatterns.pattern.singleton.lazysafety;
 
 
 /**
  * @author: DongShaowei
  * @create: 2024-11-20 21:30
- * @description: 懒汉式：非线程安全
+ * @description: 懒汉式：线程安全的
  */
 public class Singleton {
 
@@ -14,7 +14,7 @@ public class Singleton {
     private static Singleton instance;
 
     // 2.对外提供访问方式
-    public static Singleton getInstance() {
+    public static synchronized Singleton getInstance() {
         if (instance == null) {
             instance = new Singleton();
         }

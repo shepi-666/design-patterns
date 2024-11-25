@@ -1,4 +1,4 @@
-package com.heima.designpatterns.principles.substitiution;
+package com.heima.designpatterns.principles.substitiution.before;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

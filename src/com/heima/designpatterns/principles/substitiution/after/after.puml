@@ -1,27 +1,33 @@
 @startuml
 'https://plantuml.com/class-diagram
-
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+interface Quadrilateral {
+    + getLength(): double
+    + getWidth(): double
+}
+class RectangleDemo {
+    + resize(Rectangle rectangle): void
+    + printLengthAndWidth(Quadrilateral quad): void
+}
+class Square {
+    - side: double
+    + getLength(): double
+    + getWidth(): double
+    + setSide(double side): void
+    + getSide(): void
+}
+class Rectangle {
+    - length: double
+    - width: double
+    + getLength(): double
+    + getWidth(): double
+    + setLength(double length)
+    + setWidth(double width)
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
-}
+Quadrilateral <.right. RectangleDemo: dependency
+Quadrilateral <|.. Square: realization
+Quadrilateral <|.. Rectangle: realization
+RectangleDemo ..> Rectangle: dependency
+
 
 @enduml

@@ -107,7 +107,7 @@ classDiagram
 	note for Driver "public void driver(Car car) { car.move(); }"
 ```
 
-
+![](https://shepi-1308499968.cos.ap-chengdu.myqcloud.com/img/testUml.drawio.png)
 
 * **表示方法**：虚线箭头
 * **语法**：`..>`
