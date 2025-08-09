@@ -1,0 +1,23 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Client {
+    + main() : void
+}
+
+class ProxyPoint {
+    + sell() : void
+}
+
+class TrainStation {
+    + sell() : void
+}
+
+class SellTickets {
+    + sell() : void
+}
+
+Client ".." *-- ".." ProxyPoint : 使用
+ProxyPoint ".." *-- ".." TrainStation : 实现
+ProxyPoint ".." ..> SellTickets : 实现
+@enduml

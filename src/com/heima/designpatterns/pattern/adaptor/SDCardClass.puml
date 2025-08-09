@@ -1,0 +1,46 @@
+@startuml
+
+interface SDCard {
+    + readSD() : String
+    + writeSD() : void
+}
+
+interface TFCard {
+    + readTF() : String
+    + writeTF() : void
+}
+
+class SDCardImpl {
+    + readSD() : String
+    + writeSD() : void
+}
+
+class TFCardImpl {
+    + readTF() : String
+    + writeTF() : void
+}
+
+class SDAdapterTF {
+    + readSD() : String
+    + writeSD() : void
+}
+
+class Computer {
+    + readSD(SDCard sdCard) : String
+}
+
+class Client {
+    + main() : void
+}
+
+SDCard <|.. SDCardImpl : implements
+TFCard <|.. TFCardImpl : implements
+SDCard <|.. SDAdapterTF : implements
+
+SDAdapterTF .> TFCardImpl : uses
+
+Computer o-- SDCard : uses
+Client ..> Computer : uses
+Client .> SDAdapterTF : uses
+
+@enduml
