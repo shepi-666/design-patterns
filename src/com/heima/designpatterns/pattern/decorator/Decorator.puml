@@ -1,0 +1,51 @@
+@startuml
+
+class FastFood {
+    - price : float
+    - desc : String
+
+    + setPrice(float price) : void
+    + setDesc(String desc) : void
+    + getPrice() : float
+    + getDesc() : String
+    + cost() : float
+}
+
+class FriedRice {
+    + FriedRice()
+    + cost() : float
+}
+
+class FriedNoodles {
+    + FriedNoodles()
+    + cost() : float
+}
+
+class Garnish {
+    - fastFood : FastFood
+
+    + Garnish(FastFood fastFood, float price, String desc)
+    + setFastFood(FastFood fastFood)
+    + getFastFood() : FastFood
+}
+
+class Egg {
+    + Egg(FastFood fastFood)
+    + cost() : float
+    + getDesc() : String
+}
+
+class Bacon {
+    + Bacon(FastFood fastFood)
+    + cost() : float
+    + getDesc() : String
+}
+FastFood <|-- FriedRice
+FastFood <|-- FriedNoodles
+
+Garnish <|-- Egg
+Garnish <|-- Bacon
+
+FastFood --o Garnish
+
+@enduml
